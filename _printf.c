@@ -20,8 +20,8 @@ int _printf(const char *format, ...)
 			write(1, format, 1);
 			char_output++;
 		}
-		
-		else{
+		else
+		{
 			format++;
 			if (*format == '\0')
 				break;
