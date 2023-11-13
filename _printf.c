@@ -20,27 +20,33 @@ int _printf(const char *format, ...)
 			write(1, format, 1);
 			char_output++;
 		}
-		else
+		
+		else{
 			format++;
 			if (*format == '\0')
 				break;
 			if (*format == '%')
+			{
 				write(1, format, 1);
 				char_output++;
-		else if (*format == 'c')
-		char c = va_arg(args, int);
+			}
+			else if (*format == 'c')
+			{
+				char c = va_arg(args, int);
 
-			write(1, &c, 1);
-			char_output++;
-		else if (*format == 's')
-			char *str = va_arg(args, char*);
-		int len = 0;
+				write(1, &c, 1);
+				char_output++;
+			}
+			else if (*format == 's')
+			{
+				char *str = va_arg(args, char*);
+				int len = 0;
 
-		while (str[len] != '\0')
-		{
-			len++;
-		write(1, str, len);
-		char_output++;
+				while (str[len] != '\0')
+				len++;
+				write(1, str, len);
+				char_output += len;
+			}
 		}
 		format++;
 	}
