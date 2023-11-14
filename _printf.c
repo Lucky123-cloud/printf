@@ -1,57 +1,40 @@
 #include "main.h"
 /**
- * _printf - The main function of this program
- * @format: character string
- * Return: Printed Characters
+ * _printf - function that prints char on the console
+ * @format: character strings
+ * Return: the lenghth of the string
  */
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	int count = 0;
-	va_list args;
+	convert_match cl[] = {
+		{"%s", print_string}, {"%c", print_char}, {"%%", print_27}
+	};
 
-	if (format == NULL)
-		return (-1);
+	va_list args;
+	int i = 0, ci, len = 0;
 
 	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 
-	while (*format)
-	{
-		if (*format != '%')
+ProcessFormat:
+		while (format[i] != '\0')
 		{
-			write(1, format, 1);
-			count++;
-		}
-		else
-		{
-			format++;
-			if (*format == '\0')
-				break;
-
-			if (*format == '%')
+			ci = 13;
+			while (ci >= 0)
 			{
-				write(1, format, 1);
-				count++;
+				if (cl[ci].id[0] == format[i] && cl[ci].id[1] == format[i + 1])
+				{
+					len += cl[ci].f(args);
+					i = i + 2;
+					goto ProcessFormat;
+				}
+				ci--;
 			}
-			else if (*format == 'c')
-			{
-				char c = va_arg(args, int);
-
-				write(1, &c, 1);
-				count++;
+			_putchar(format[i]);
+			len++;
+			i++;
 			}
-			else if (*format == 's')
-			{
-				char *str = va_arg(args, char*);
-				int len = 0;
-
-				while (str[len] != '\0')
-					len++;
-				write(1, str, len);
-				count += len;
-			}
-		}
-		format++;
+		va_end(args);
+	return (len);
 	}
-	va_end(args);
-	return (count);
-}
