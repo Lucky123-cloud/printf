@@ -7,7 +7,7 @@
  */
 int convert_integer(va_list args)
 {
-	int m = Va_args(args, int);
+	int m = va_arg(args, int);
 	int number, d, e = 1, x = 1, st = m % 10;
 
 	m = m / 10;
@@ -56,7 +56,7 @@ int convert_decimal(va_list args)
 	if (st < 0)
 	{
 		_putchar('-');
-		numebr = -number;
+		number = -number;
 		m = -m;
 		st = -st;
 		x++;

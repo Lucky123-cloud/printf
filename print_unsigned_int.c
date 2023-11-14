@@ -8,7 +8,7 @@
 int print_unsigned_int(va_list args)
 {
 	unsigned int m = va_arg(args, unsigned int);
-	int d, number, st = n % 10, e = 1, x = 1;
+	int d, number, st = m % 10, e = 1, x = 1;
 
 	m /= 10;
 	number = m;
