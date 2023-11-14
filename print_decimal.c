@@ -1,82 +1,45 @@
 #include "main.h"
 
 /**
- * convert_integer - function to print an integer
- * @args: arguments to print
- * Return: Always 0 (Success)
+ * print_int - function that print integer numbers
+ * @args: number arguements
+ * @p: the number of printed characters
+ * Return: number of printed characters
  */
-int convert_integer(va_list args)
+
+int print_int(va_list args, int p)
 {
-	int m = va_arg(args, int);
-	int number, d, e = 1, x = 1, st = m % 10;
+	int number = va_arg(args, int);
+	int ds = 0;
+	int temp = number;
+	int d;
 
-	m = m / 10;
-	number = m;
-
-	if (st < 0)
+	if (number < 0)
 	{
-		_putchar('-');
+		p = p + _putchar('-');
 		number = -number;
-		m = -m;
-		st = -st;
-		x++;
-	}
-	if (number > 0)
-	{
-		while (number / 10 != 0)
-		{
-			e *= 10;
-			number /= 10;
-		}
-		number = m;
-		while (e > 0)
-		{
-			d = number / e;
-			_putchar(d + '0');
-			e /= 10;
-			x++;
-		}
-	}
-	_putchar(st + '0');
-	return (x);
-}
 
-/**
-  *convert_decimal - function to convert a decimal into a character
-  *@args: arguments to print
-  *Return: Always 0 (Success)
-  */
-int convert_decimal(va_list args)
-{
-	int m = va_arg(args, int);
-	int number, d, x = 1, e = 1, st = m % 10;
+		temp = number;
+	}
 
-	m = m / 10;
-	number = m;
-	if (st < 0)
+	do {
+		ds++;
+		temp = temp / 10;
+	} while (temp != 0);
+
+	while (ds > 0)
 	{
-		_putchar('-');
-		number = -number;
-		m = -m;
-		st = -st;
-		x++;
-	}
-	if (number > 0)
-	{
-		while (number / 10 != 0)
+		int power = 1;
+		int i;
+
+		for (i = 1; i < ds; i++)
 		{
-			e *= 10;
-			number /= 10;
+			power = power * 10;
 		}
-		number = 10;
-		while (e > 10)
-		{
-			d = number / e;
-			_putchar(d + '0');
-			number = number - (d * e);
-			x++;
-		}
+		digit = number / power;
+		p += _putchar(d + '0');
+		number -= d * power;
+		ds--;
 	}
-	_putchar(st + '0');
-	return (x);
+	return (p);
 }

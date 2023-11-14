@@ -1,42 +1,43 @@
 #include "main.h"
 
 /**
-  *print_unsigned_int - function to convert an unsigned int to character
-  *@args: arguments to be converted and printed
-  *Return: Always 0 (Success)
-  */
-int print_unsigned_int(va_list args)
-{
-	unsigned int m = va_arg(args, unsigned int);
-	int d, number, st = m % 10, e = 1, x = 1;
+ * print_unsigned_int - function to print unsigned integers
+ * @number: numbers to be printed
+ * @p: characters printed at the output
+ * Return: printed charcaters
+ */
 
-	m /= 10;
-	number = m;
-	if (st < 0)
+int print_unsigned_int(unsigned int number, int p)
+{
+	int d = 0;
+	unsigned int temp = number;
+
+	do {
+		d++;
+		temp = temp / 10;
+	} while (temp != 0);
+
+	if (number == 0)
 	{
-		_putchar('-');
-		number = -number;
-		m = -m;
-		st = -st;
-		x++;
+		_putchar('0');
+		p++;
 	}
-	if (number > 0)
+	else
 	{
-		while (number / 10 != 0)
+		char string[11];
+		int i = 0;
+
+		while (number != 0)
 		{
-			e *= 10;
-			number /= 10;
+			string[i] = (number % 10) + '0';
+			number = number / 10;
+			i++;
 		}
-		number = m;
-		while (e > 0)
+		for (i = digits - 1; i >= 0; i--)
 		{
-			d = number / e;
-			_putchar(d + '0');
-			number -= (d * e);
-			e *= 10;
-			x++;
+			_putchar(string[i]);
+			p++;
 		}
 	}
-	_putchar(st + '0');
-	return (x);
+	return (p);
 }

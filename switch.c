@@ -1,31 +1,31 @@
 #include "main.h"
 
 /**
- * selector - selects the appropriate specifiers
+ * all_cases - function to select the correct specifier
  * @args: number of arguements
- * @printed: the printed characters
+ * @p: the characters printed at the output
  * @format: the format specifier
  * Return: printed charcaters
  */
 
-int selector(const char *format, va_list args, int printed)
+int all_cases(const char *format, va_list args, int p)
 {
 	switch (*format)
 	{
-		/*case 'd':
+		case 'd':
 		case 'i':
-			printed = printf_integer(args, printed);
-			break;*/
+			p = print_int(args, p);
+			break;
 		case 'c':
 			_putchar(va_arg(args, int));
-			printed++;
+			p++;
 			break;
 		case 's':
-			printed = printf_string(args, printed);
+			p = print_string(args, p);
 			break;
 		case '%':
 			_putchar('%');
-			printed++;
+			p++;
 			break;
 		/*case 'b':
 			printed = printf_binary(va_arg(args, unsigned int), printed);
@@ -49,5 +49,5 @@ int selector(const char *format, va_list args, int printed)
 		default:
 			break;
 	}
-	return (printed);
+	return (p);
 }
