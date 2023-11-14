@@ -27,7 +27,7 @@ int selector(const char *format, va_list args, int printed)
 			_putchar('%');
 			printed++;
 			break;
-		case 'b':
+		/*case 'b':
 			printed = printf_binary(va_arg(args, unsigned int), printed);
 			break;
 		case 'x':
@@ -45,7 +45,7 @@ int selector(const char *format, va_list args, int printed)
 			break;
 		case 'p':
 			printed = printf_pointer(args, printed);
-			break;
+			break;*/
 		default:
 			break;
 	}
