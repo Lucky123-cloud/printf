@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			p = selector(format, args, p);
+			p = all_cases(format, args, p);
 			format++;
 		}
 		else
