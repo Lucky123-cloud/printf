@@ -33,7 +33,7 @@ int print_unsigned_int(unsigned int number, int p)
 			number = number / 10;
 			i++;
 		}
-		for (i = digits - 1; i >= 0; i--)
+		for (i = d - 1; i >= 0; i--)
 		{
 			_putchar(string[i]);
 			p++;

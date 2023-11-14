@@ -36,7 +36,7 @@ int print_int(va_list args, int p)
 		{
 			power = power * 10;
 		}
-		digit = number / power;
+		d = number / power;
 		p += _putchar(d + '0');
 		number -= d * power;
 		ds--;
