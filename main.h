@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
+#include <string.h>
 
 int _putchar(char character);
 int print_char(va_list args, int p);
