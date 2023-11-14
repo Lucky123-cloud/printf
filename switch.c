@@ -12,10 +12,10 @@ int selector(const char *format, va_list args, int printed)
 {
 	switch (*format)
 	{
-		case 'd':
+		/*case 'd':
 		case 'i':
 			printed = printf_integer(args, printed);
-			break;
+			break;*/
 		case 'c':
 			_putchar(va_arg(args, int));
 			printed++;
