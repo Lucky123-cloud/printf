@@ -3,12 +3,12 @@
 /**
  * _printf - implementation of the inbuilt printf
  * @format: the format specifier
- * Return: the formated string
+ * Return: format string
  */
 
 int _printf(const char *format, ...)
 {
-	int printed = 0;
+	int p = 0;
 
 	va_list args;
 
@@ -19,16 +19,16 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			printed = selector(format, args, printed);
+			p = selector(format, args, p);
 			format++;
 		}
 		else
 		{
 			_putchar(*format);
-			printed++;
+			p++;
 			format++;
 		}
 	}
 	va_end(args);
-	return (printed);
+	return (p);
 }

@@ -7,10 +7,10 @@
 #include <limits.h>
 
 int _putchar(char character);
-int printf_char(va_list args, int printed);
-int printf_string(va_list args, int printed);
+int printf_char(va_list args, int p);
+int printf_string(va_list args, int p);
 /*int printf_integer(va_list args, int printed);*/
-int selector(const char *format, va_list args, int printed);
+int selector(const char *format, va_list args, int p);
 /*int printf_binary(unsigned int num, int printed);*/
 int _printf(const char *format, ...);
 /*int _x(unsigned int num, int printed, int uppercase);*/
