@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_string - prints a string
+ * print_string - prints a string
  * @args: numberof arguements
  * @p: the printed characters
  * Return: printed charcaters
