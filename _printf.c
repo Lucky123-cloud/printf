@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
  * _printf - function that prints char on the console
  * @format: character strings
  * Return: the lenghth of the string
  */
+
 int _printf(const char * const format, ...)
 {
 	convert_match cl[] = {
