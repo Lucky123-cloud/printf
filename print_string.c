@@ -7,7 +7,7 @@
  * Return: printed charcaters
  */
 
-int printf_string(va_list args, int p)
+int print_string(va_list args, int p)
 {
 	char *string = va_arg(args, char *);
 
