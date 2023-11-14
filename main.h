@@ -27,5 +27,7 @@ int print_char(va_list val);
 int print_27(void);
 int _strlenc(const char *s);
 int _strlen(char *s);
+int convert_integer(va_list, args);
+int print_unsigned_int(va_list args);
 
 #endif
