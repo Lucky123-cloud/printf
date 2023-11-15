@@ -1,32 +1,37 @@
 #include "main.h"
+
 /**
-  *print_binary- function to print a binary number
-  *@args: number to be printed
-  *Return: Always 0 (Success)
-  */
+ * print_binary - prints a binary number
+ * @num: number arguements
+ * @p: the printed characters
+ * Return: printed charcaters
+ */
 
-int print_binary(va_list args)
+int print_binary(unsigned int num, int p)
 {
-	int x = 0, y = 0, i, j, k = 1;
-	unsigned int l;
-	unsigned int number = va_arg(args, unsigned int);
+	int binary[32] = {0};
+	int i = 0;
 
-	for (i = 0; i < 32; i++)
+	if (num == 0)
 	{
-		l = ((k << (31 - i)) & number);
-		if (l >> (31 - i))
-			x = 1;
-		if (x)
-		{
-			j = l >> (31 - i);
-			_putchar(j + 48);
-			y++;
-		}
-	}
-	if (y == 0)
-	{
-		y++;
 		_putchar('0');
+		p++;
+		return (p);
 	}
-	return (y);
+
+	while (num > 0)
+	{
+		binary[i] = num % 2;
+		num /= 2;
+		i++;
+	}
+
+	while (i > 0)
+	{
+		i--;
+		_putchar('0' + binary[i]);
+		p++;
+	}
+
+	return (p);
 }
