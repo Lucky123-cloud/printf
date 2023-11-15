@@ -27,8 +27,12 @@ int all_cases(const char *format, va_list args, int p)
 			_putchar('%');
 			p++;
 			break;
-			default:
+		case 'b':
+			p = print_binary(va_arg(args, unsigned int), p);
 			break;
+		default:
+			break;
+
 	}
 	return (p);
 }

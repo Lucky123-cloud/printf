@@ -14,6 +14,6 @@ int print_int(va_list args, int p);
 int all_cases(const char *format, va_list args, int p);
 int _printf(const char *format, ...);
 int print_unsigned_int(unsigned int number, int p);
-int print_binary(unsigned int num, int p);
+int print_binary(unsigned int number, int p);
 
 #endif

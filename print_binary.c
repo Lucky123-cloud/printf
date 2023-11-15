@@ -7,22 +7,22 @@
  * Return: printed charcaters
  */
 
-int print_binary(unsigned int num, int p)
+int print_binary(unsigned int number, int p)
 {
 	int binary[32] = {0};
 	int i = 0;
 
-	if (num == 0)
+	if (number == 0)
 	{
 		_putchar('0');
 		p++;
 		return (p);
 	}
 
-	while (num > 0)
+	while (number > 0)
 	{
-		binary[i] = num % 2;
-		num /= 2;
+		binary[i] = number % 2;
+		number /= 2;
 		i++;
 	}
 
