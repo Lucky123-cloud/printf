@@ -30,6 +30,22 @@ int all_cases(const char *format, va_list args, int p)
 		case 'b':
 			p = print_binary(va_arg(args, unsigned int), p);
 			break;
+		case 'X':
+		case 'x':
+			p = print_hex(va_arg(args, unsigned int), p, (*format == 'X') ? 1 : 0);
+			break;
+		case 'o':
+			p = print_octal(va_arg(args, unsigned int), p);
+			break;
+		case 'u':
+			p = print_unsigned_int(va_arg(args, unsigned int), p);
+			break;
+		case 'r':
+			p = print_rev(args, p);
+			break;
+		case 'p':
+			p = print_ptr(args, p);
+			break;
 		default:
 			break;
 
