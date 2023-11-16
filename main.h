@@ -19,5 +19,5 @@ int print_binary(unsigned int number, int p);
 int print_ptr(va_list args, int p);
 int print_octal(unsigned int number, int p);
 int print_hex(unsigned int number, int upper, int p);
-
+int print_rot13(va_list args, char p);
 #endif
